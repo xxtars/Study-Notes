@@ -5,7 +5,7 @@
 
 <table border="1">
 <tr>
-    <th colspan="2">表5.1：<stdexcept>定义的异常类</th>
+    <th colspan="2">表5.1：stdexcept定义的异常类</th>
 </tr>
 <tr>
     <td align="left">exception</th>
