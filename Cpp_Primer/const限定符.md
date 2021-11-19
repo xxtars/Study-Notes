@@ -58,18 +58,18 @@
 > class Textbook  
 > {  
 > public:  
->     ...  
->     const char& operator[](std::size_t position) const   
->     {  
->         ...  
->         return text[position];  
->     }  
->     char& operator[](std::size_t position)  
->     {  
->         //这里首先将op[]的返回值的const去除，因为const char&不能自动转换为char&，除此之外，由于调用以上const函数的必须是const对象，因此将调用此函数的对象(即*this)强制转化为一个(底层)const对象，再调用const op[]。  
->         return  
->             const_cast<char&>(static_cast<const TextBlock&>(*this)[position]);  
->     }  
+> &ensp;&ensp;&ensp;&ensp;...  
+> &ensp;&ensp;&ensp;&ensp;const char& operator[](std::size_t position) const   
+> &ensp;&ensp;&ensp;&ensp;{  
+> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;...  
+> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;return text[position];  
+> &ensp;&ensp;&ensp;&ensp;}  
+> &ensp;&ensp;&ensp;&ensp;char& operator[](std::size_t position)  
+> &ensp;&ensp;&ensp;&ensp;{  
+> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;//这里首先将op[]的返回值的const去除，因为const char&不能自动转换为char&，除此之外，由于调用以上const函数的必须是const对象，因此将调用此函数的对象(即*this)强制转化为一个(底层)const对象，再调用const op[]。  
+> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;return  
+> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;const_cast<char&>(static_cast<const TextBlock&>(*this)[position]);  
+> &ensp;&ensp;&ensp;&ensp;}  
 > };  
 
 **为什么不能在一个常量对象中调用非常成员函数？**
